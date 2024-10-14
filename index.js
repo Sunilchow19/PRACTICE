@@ -1,41 +1,23 @@
 var express= require("express");
 
+
+var router=require("./router/index")
+
 var app=express();
+
+http://host:3000/api
 
 
 require("dotenv").config();
 
-
-
-
-var mysql2= require("mysql2");
-
-
-var conn=mysql2.createConnection({
-
-    host:process.env.host,
-    user:process.env.user,
-    password:process.env.password,
-    database:process.env.database
-})
-
-conn.connect((err)=>{
-    if(err){
-        console.log(err);
-        
-    }else{
-        console.log("conected to mysql db");
-        
-    }
-})
+app.use("/api",router);
 
 
 app.get("/",(req,res)=>{
 
+    res.send("hello enter the server")
+})
 
-    res.send("hello ")
-}
-)
 
 var port=process.env.port;
 app.listen(port,()=>{

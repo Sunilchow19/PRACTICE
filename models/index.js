@@ -6,9 +6,9 @@ var gettingdata=()=>{
 
 return new Promise((resolve,reject)=>{
 
-    conn.query("select * from users",(err,data)=>{
+    conn.query("select * from register",(err,data)=>{
 
-        console.log(data)
+        // console.log(data)
         if(err){
         reject(err)
         }
@@ -23,6 +23,28 @@ return new Promise((resolve,reject)=>{
 }
 
 
+let login=()=>{
+
+    return new Promise ((resolve,reject)=>{
+        // let data={
+        //     ...req.body
+        //  }
+        conn.query("select * from register",(err,data)=>{
+
+                 if(err){
+                     reject(err)
+                 }
+                 else{
+    
+                    resolve(data)
+                                   
+                 }
+             })
+    })
+}
+
+
 module.exports={
-    gettingdata
+    gettingdata,
+    login
 }

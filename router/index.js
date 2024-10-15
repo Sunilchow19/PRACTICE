@@ -2,6 +2,9 @@ var express= require("express");
 
 
 var {users}=require("../controllers/index")
+
+let {login_data}=require("../controllers/index")
+
 var router = express.Router();
 
 
@@ -9,7 +12,7 @@ var router = express.Router();
 
 router.get("/users",users);
 
-router.get("/fb",users);
+router.get("/login",login_data);
 
 // router.get("/",users)
 
